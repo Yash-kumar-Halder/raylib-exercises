@@ -1,0 +1,42 @@
+const r = require("raylib");
+const sketch = require("./utils/sketch");
+const geometry = require("./utils/geometry");
+
+const WINDOW_WIDTH = 600;
+const WINDOW_HEIGHT = 600;
+const FPS = 60;
+
+function setup(windowWidth, windowHeight, str = "Raylib program") {
+    r.InitWindow(windowWidth, windowHeight, str);
+    r.SetTargetFPS(60);
+}
+
+
+
+function draw() {
+    const cir1X = 100;
+    const cir1Y = 100;
+    const cir1Rad = 60;
+
+    const cir2X = 210;
+    const cir2Y = 100;
+    const cir2Rad = 60;
+
+    r.BeginDrawing();
+    r.ClearBackground(r.WHITE);
+
+    const color = geometry.isIntersecting(cir1X, cir1Y, cir2X, cir2Y, cir1Rad, cir2Rad) ? r.RED : r.BLACK;
+
+    r.DrawCircle(cir1X, cir1Y, cir1Rad, color);
+    r.DrawCircle(cir2X, cir2Y, cir2Rad, color);
+
+    r.EndDrawing();
+}
+
+function main() {
+    sketch.setup(WINDOW_WIDTH, WINDOW_HEIGHT, "Intersecting Circles", FPS);
+    sketch.loop(draw);
+    r.CloseWindow();
+}
+
+main();
