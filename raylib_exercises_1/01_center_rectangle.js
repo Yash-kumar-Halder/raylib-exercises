@@ -1,6 +1,6 @@
 const r = require("raylib");
-const sketch = require("./utils/sketch.js")
-const geometry = require("./utils/geometry.js");
+const sketch = require("./sketch.js");
+const geometry = require("./geometry.js");
 
 const WINDOW_WIDTH = 400;
 const WINDOW_HEIGHT = 400;

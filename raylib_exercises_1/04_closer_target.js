@@ -1,7 +1,6 @@
 const r = require("raylib");
-const sketch = require("./utils/sketch");
-const geometry = require("./utils/geometry");
-
+const sketch = require("./sketch");
+const geometry = require("./geometry");
 
 function setup(windowWidth, windowHeight, str = "Raylib Program") {
   r.InitWindow(windowWidth, windowHeight, str);
@@ -17,11 +16,19 @@ function createSource(centerX, centerY, radius, color) {
   r.DrawCircle(centerX, centerY, radius, color);
 }
 
-
-
 function findTarget(sourceX, sourceY, target1X, target1Y, target2X, target2Y) {
-  const distanceOfTarget1 = geometry.getDistance(sourceX, sourceY, target1X, target1Y);
-  const distanceOfTarget2 = geometry.getDistance(sourceX, sourceY, target2X, target2Y);
+  const distanceOfTarget1 = geometry.getDistance(
+    sourceX,
+    sourceY,
+    target1X,
+    target1Y,
+  );
+  const distanceOfTarget2 = geometry.getDistance(
+    sourceX,
+    sourceY,
+    target2X,
+    target2Y,
+  );
 
   return distanceOfTarget2 >= distanceOfTarget1 ? 1 : 2;
 }
@@ -33,7 +40,6 @@ function draw() {
   const target1Y = 250;
   const target2X = 350;
   const target2Y = 350;
-
 
   r.BeginDrawing();
   r.ClearBackground(r.WHITE);
